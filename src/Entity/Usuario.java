@@ -28,6 +28,9 @@ public class Usuario {
         this.monedero = monedero;
     }
 
+    public Usuario() {
+    }
+
     public long getCedula() {
         return cedula;
     }
