@@ -17,7 +17,12 @@ public class Controller {
 
     public void menu (){
         String menu = "Management MercadoLibre\n" +
-                "1. Crear usuario\n2. Borrar Usuario\n3. Actualizar monedero de usuario\n4. Ver Info Usuario\n5. Salir";
+                "1. Crear usuario\n" +
+                "2. Borrar Usuario\n" +
+                "3. Actualizar monedero de usuario\n" +
+                "4. Ver Info Usuario\n" +
+                "5. Aumentar en 100 el monedero de un usuario\n" +
+                "6. Salir";
         try {
             long cedula;
             int seleccion = Integer.parseInt(JOptionPane.showInputDialog(null, menu));
@@ -52,6 +57,10 @@ public class Controller {
                     JOptionPane.showMessageDialog(null, datos);
                     break;
                 case 5:
+                    cedula = Long.parseLong(JOptionPane.showInputDialog("Ingrese la cédula del usuario"));
+                    manejo.cambiarPuntos(cedula);
+                    break;
+                case 6:
                     JOptionPane.showMessageDialog(null, "Hasta Luego");
                     break;
                 default:

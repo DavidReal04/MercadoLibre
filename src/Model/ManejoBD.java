@@ -3,9 +3,7 @@ package Model;
 import Conexion.ConexionBD;
 import Entity.Usuario;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class ManejoBD {
 
@@ -134,5 +132,17 @@ public class ManejoBD {
             }
         }
         return user;
+    }
+
+    public void cambiarPuntos(long cedula) {
+        try {
+            conex =new ConexionBD();
+            Connection conexion = conex.getConnection();
+            CallableStatement c=conexion.prepareCall("{call pa_cambiarPuntos(?)}");
+            c.setLong(1, cedula);
+            c.execute();
+        } catch (SQLException ex) {
+            System.out.print("error conexion");
+        }
     }
 }
